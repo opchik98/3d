@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>My first three.js app</title>
+		<title>kakava</title>
 		<style>
 			body { margin: 0; }
 			canvas { display: block; }
@@ -8,7 +8,11 @@
 	</head>
 	<body>
 		<script src="js/three.js"></script>
+		<script type="js/OrbitControls.js"></script>
+		
 		<script>
+
+
 			var scene = new THREE.Scene();
 			var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
 
@@ -16,8 +20,20 @@
 			renderer.setSize( window.innerWidth, window.innerHeight );
 			document.body.appendChild( renderer.domElement );
 
+			controls = new THREE.MapControls(camera, renderer.domElement);
+
+			controls.enableDamping = true;
+			controls.dampingFactor = 0.05;
+
+			controls.screenSpacePanning = false;
+
+			controls.minDistance = 5;
+			controls.maxDistance = 10;
+
+			controls.maxPolarAngle = Math.PI / 2;
+
 			var geometry = new THREE.BoxGeometry();
-			var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+			var material = new THREE.MeshBasicMaterial( { color: 0x00363DFF } );
 			var cube = new THREE.Mesh( geometry, material );
 			scene.add( cube );
 
