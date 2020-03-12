@@ -20,7 +20,7 @@
 			renderer.setSize( window.innerWidth, window.innerHeight );
 			document.body.appendChild( renderer.domElement );
 
-			controls = new THREE.MapControls(camera, renderer.domElement);
+			controls = new THREE.OrbitControls(camera, renderer.domElement);
 
 			controls.enableDamping = true;
 			controls.dampingFactor = 0.05;
